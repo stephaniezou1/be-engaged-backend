@@ -1484,3 +1484,115 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mElection Create (0.6ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4990"], ["name", "Louisiana Presidential and Municipal Primary Election"], ["electionDay", "2020-07-11"], ["ocdDivisionId", "ocd-division/country:us/state:la"], ["created_at", "2020-06-04 01:49:30.063211"], ["updated_at", "2020-06-04 01:49:30.063211"]]
   [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (346.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (287.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (273.9ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (125.1ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (6.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (70.4ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "username" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (19.6ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (4.7ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (6.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-04 13:33:18.435722"], ["updated_at", "2020-06-04 13:33:18.435722"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "003f43a58d0419918c08560bb72e3975bf7298d9"], ["created_at", "2020-06-04 13:33:18.470868"], ["updated_at", "2020-06-04 13:33:18.470868"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "username" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-04 13:33:18.697356"], ["updated_at", "2020-06-04 13:33:18.697356"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-04 13:33:18.717372"], ["key", "environment"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "003f43a58d0419918c08560bb72e3975bf7298d9"], ["created_at", "2020-06-04 13:33:18.747955"], ["updated_at", "2020-06-04 13:33:18.747955"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mElection Load (0.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.9ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "2000"], ["name", "VIP Test Election"], ["electionDay", "2021-06-06"], ["ocdDivisionId", "ocd-division/country:us"], ["created_at", "2020-06-04 13:33:19.086030"], ["updated_at", "2020-06-04 13:33:19.086030"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4955"], ["name", "West Virginia Presidential and State Primary Election"], ["electionDay", "2020-06-09"], ["ocdDivisionId", "ocd-division/country:us/state:wv"], ["created_at", "2020-06-04 13:33:19.093357"], ["updated_at", "2020-06-04 13:33:19.093357"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.6ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4958"], ["name", "Georgia Presidential and State Primary Election"], ["electionDay", "2020-06-09"], ["ocdDivisionId", "ocd-division/country:us/state:ga"], ["created_at", "2020-06-04 13:33:19.101121"], ["updated_at", "2020-06-04 13:33:19.101121"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4969"], ["name", "North Dakota State Primary Election"], ["electionDay", "2020-06-09"], ["ocdDivisionId", "ocd-division/country:us/state:nd"], ["created_at", "2020-06-04 13:33:19.108572"], ["updated_at", "2020-06-04 13:33:19.108572"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4970"], ["name", "Nevada State Primary Election"], ["electionDay", "2020-06-09"], ["ocdDivisionId", "ocd-division/country:us/state:nv"], ["created_at", "2020-06-04 13:33:19.115287"], ["updated_at", "2020-06-04 13:33:19.115287"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4971"], ["name", "South Carolina State Primary Election"], ["electionDay", "2020-06-09"], ["ocdDivisionId", "ocd-division/country:us/state:sc"], ["created_at", "2020-06-04 13:33:19.121739"], ["updated_at", "2020-06-04 13:33:19.121739"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.6ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4990"], ["name", "Louisiana Presidential and Municipal Primary Election"], ["electionDay", "2020-07-11"], ["ocdDivisionId", "ocd-division/country:us/state:la"], ["created_at", "2020-06-04 13:33:19.131515"], ["updated_at", "2020-06-04 13:33:19.131515"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m

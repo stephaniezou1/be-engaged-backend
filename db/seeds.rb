@@ -11,7 +11,7 @@ require 'rest-client'
 Election.destroy_all
 
 api_key = ENV['google_api_key']
-elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCUmD56mlOkra7Z7fxAUpFfSMRSRkR_mUU"
+elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=#{api_key}"
 elections_object = JSON.parse(elections)["elections"]
 # byebug;
 elections_object.each do |election|
