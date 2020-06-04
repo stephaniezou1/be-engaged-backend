@@ -10,6 +10,10 @@ require 'rest-client'
 
 Election.destroy_all
 
+stephanie = User.create(name: "Stephanie", email: "steph.zou16@gmail.com", password: "abc123", line1: "200 E 11th Street", city: "New York", state: "NY", zip_code: "10003")
+alisha = User.create(name: "Alisha", email: "alishazou@gmail.com", password: "abc123", line1: "375 N La Cienega Blvd", city: "West Hollywood", state: "CA", zip_code: "90048")
+naomi = User.create(name: "Naomi", email: "naomielegant@gmail.com", password: "abc123", line1: "20722 2nd Avenue West", city: "Cudjoe Key", state: "FL", zip_code: "33042")
+
 api_key = ENV['google_api_key']
 elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=#{api_key}"
 elections_object = JSON.parse(elections)["elections"]
@@ -24,87 +28,4 @@ elections_object.each do |election|
 end
 puts "elections seeded"
 
-# Election.all_elections
-
-
-# elections = [
-#     {
-#         "id": "2000",
-#         "name": "VIP Test Election",
-#         "electionDay": "2021-06-06",
-#         "ocdDivisionId": "ocd-division/country:us"
-#       },
-#       {
-#         "id": "4955",
-#         "name": "West Virginia Presidential and State Primary Election",
-#         "electionDay": "2020-06-09",
-#         "ocdDivisionId": "ocd-division/country:us/state:wv"
-#       },
-#       {
-#         "id": "4958",
-#         "name": "Georgia Presidential and State Primary Election",
-#         "electionDay": "2020-06-09",
-#         "ocdDivisionId": "ocd-division/country:us/state:ga"
-#       },
-#       {
-#         "id": "4964",
-#         "name": "DC Presidential and State Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/district:dc"
-#       },
-#       {
-#         "id": "4968",
-#         "name": "New Mexico Presidential and State Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/state:nm"
-#       },
-#       {
-#         "id": "4969",
-#         "name": "North Dakota State Primary Election",
-#         "electionDay": "2020-06-09",
-#         "ocdDivisionId": "ocd-division/country:us/state:nd"
-#       },
-#       {
-#         "id": "4970",
-#         "name": "Nevada State Primary Election",
-#         "electionDay": "2020-06-09",
-#         "ocdDivisionId": "ocd-division/country:us/state:nv"
-#       },
-#       {
-#         "id": "4971",
-#         "name": "South Carolina State Primary Election",
-#         "electionDay": "2020-06-09",
-#         "ocdDivisionId": "ocd-division/country:us/state:sc"
-#       },
-#       {
-#         "id": "4986",
-#         "name": "Indiana Presidential and State Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/state:in"
-#       },
-#       {
-#         "id": "4987",
-#         "name": "Maryland Presidential and State Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/state:md"
-#       },
-#       {
-#         "id": "4988",
-#         "name": "Pennsylvania Presidential and State Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/state:pa"
-#       },
-#       {
-#         "id": "4989",
-#         "name": "Rhode Island Presidential Primary Election",
-#         "electionDay": "2020-06-02",
-#         "ocdDivisionId": "ocd-division/country:us/state:ri"
-#       },
-#       {
-#         "id": "4990",
-#         "name": "Louisiana Presidential and Municipal Primary Election",
-#         "electionDay": "2020-07-11",
-#         "ocdDivisionId": "ocd-division/country:us/state:la"
-#       }
-#     ]
 

@@ -6,6 +6,16 @@ class UsersController < ApplicationController
             render json: @user, status: 201
         else
             render json: {message: "Failed to create a new user"}, status: 403
+        end
+    end
+
+    def login
+        @user = User.find_by(email: params[:email])
+        if @user && @user.authenticate(params[:password])
+            render json: @user
+        else
+            render json: {message: "Incorrect username or password"}
+        end
     end
 
     private
@@ -13,4 +23,5 @@ class UsersController < ApplicationController
     def user_params
         params.permit(:name, :email, :password, :line1, :city, :state, :zip)
     end
+    
 end
