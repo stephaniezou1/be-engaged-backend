@@ -8,11 +8,35 @@
 
 require 'rest-client'
 
+User.destroy_all
 Election.destroy_all
 
-stephanie = User.create(name: "Stephanie", email: "steph.zou16@gmail.com", password: "abc123", line1: "200 E 11th Street", city: "New York", state: "NY", zip_code: "10003")
-alisha = User.create(name: "Alisha", email: "alishazou@gmail.com", password: "abc123", line1: "375 N La Cienega Blvd", city: "West Hollywood", state: "CA", zip_code: "90048")
-naomi = User.create(name: "Naomi", email: "naomielegant@gmail.com", password: "abc123", line1: "20722 2nd Avenue West", city: "Cudjoe Key", state: "FL", zip_code: "33042")
+stephanie = User.create!(
+    name: "Stephanie", 
+    email: "steph.zou16@gmail.com", 
+    password: "abc123", 
+    line1: "200 E 11th Street", 
+    city: "New York", 
+    state: "NY", 
+    zip_code: "10003")
+
+alisha = User.create!(
+    name: "Alisha", 
+    email: "alishazou@gmail.com", 
+    password: "abc123", 
+    line1: "375 N La Cienega Blvd", 
+    city: "West Hollywood", 
+    state: "CA", 
+    zip_code: "90048")
+
+naomi = User.create!(
+    name: "Naomi", 
+    email: "naomielegant@gmail.com", 
+    password: "abc123", 
+    line1: "20722 2nd Avenue West", 
+    city: "Cudjoe Key", 
+    state: "FL", 
+    zip_code: "33042")
 
 api_key = ENV['google_api_key']
 elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=#{api_key}"

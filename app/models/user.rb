@@ -1,9 +1,11 @@
 class User < ApplicationRecord
     
-    belongs_to :hometown
+    belongs_to :hometown, optional: true
+
+    # belongs to without validation
     has_many :elections, through: :follows
     has_many :follows
 
     has_secure_password
-    validates_uniqueness_of :email
+    validates :email, uniqueness: { case_sensitive: false }
 end
