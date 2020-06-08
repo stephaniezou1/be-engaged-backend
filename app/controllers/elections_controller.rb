@@ -3,8 +3,8 @@ class ElectionsController < ApplicationController
     before_action :find_election, only: [:show, :edit, :update]
 
     def index
-        @elections = Election.all 
-        render json: @elections
+      @elections = Election.all 
+      render json: @elections
     end
 
     def show 

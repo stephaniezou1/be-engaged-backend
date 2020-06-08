@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-
+    before_action :authorized, only: [:stay_logged_in]
     before_action :set_user, only: [:show, :edit, :update]
 
     def index
         @users = User.all
         render json: @users
+    end
+
+    def show
+        render json: @user
     end
 
     def create
