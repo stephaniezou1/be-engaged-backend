@@ -3917,3 +3917,616 @@ Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 2.0ms | Allocations: 368
 Completed 200 OK in 1510ms (Views: 1496.9ms | ActiveRecord: 1.2ms | Allocations: 5398)
 
 
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:11:19 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:11:19 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Processing by ElectionsController#index as */*
+[active_model_serializers]   [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+  [1m[36mElection Load (1.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.8ms)
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 1.6ms | Allocations: 4429)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.74ms)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 1.6ms | Allocations: 3541)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:12:51 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:12:51 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mElection Load (1.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.64ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 1.0ms | Allocations: 3702)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:12:52 -0400
+[active_model_serializers]   [1m[36mFollow Load (11.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+Started GET "/elections" for ::1 at 2020-06-08 19:12:52 -0400
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1573.36ms)
+Processing by UsersController#stay_logged_in as */*
+Completed 200 OK in 1590ms (Views: 1574.0ms | ActiveRecord: 12.6ms | Allocations: 6842)
+
+
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.2ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 5.2ms | Allocations: 3659)
+
+
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (2.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.79ms)
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 2.6ms | Allocations: 2147)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:14:51 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:14:51 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Processing by ElectionsController#index as */*
+[active_model_serializers]   [1m[36mFollow Load (2.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:14:53 -0400
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.92ms)
+Started GET "/elections" for ::1 at 2020-06-08 19:14:53 -0400
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.81ms)
+Completed 200 OK in 1599ms (Views: 1593.5ms | ActiveRecord: 2.7ms | Allocations: 6277)
+
+
+Completed 200 OK in 1592ms (Views: 1590.9ms | ActiveRecord: 0.6ms | Allocations: 4078)
+
+
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (0.9ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.37ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.9ms | Allocations: 2766)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.49ms)
+Completed 200 OK in 55ms (Views: 5.4ms | ActiveRecord: 3.5ms | Allocations: 5405)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:15:16 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:15:16 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.49ms)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 1.6ms | Allocations: 3355)
+
+
+  [1m[36mElection Load (10.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.79ms)
+Completed 200 OK in 998ms (Views: 987.4ms | ActiveRecord: 10.2ms | Allocations: 5267)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:15:25 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:15:25 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.26ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 2089)
+
+
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.99ms)
+Completed 200 OK in 1460ms (Views: 1445.9ms | ActiveRecord: 10.6ms | Allocations: 5549)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:18:53 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:18:53 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (6.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.97ms)
+Completed 200 OK in 39ms (Views: 28.4ms | ActiveRecord: 6.2ms | Allocations: 2362)
+
+
+  [1m[36mUser Load (24.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (17.8ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (30.01ms)
+Completed 200 OK in 263ms (Views: 210.0ms | ActiveRecord: 41.9ms | Allocations: 5395)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:19:50 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:19:50 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (1.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.53ms)
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 1.8ms | Allocations: 2827)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.01ms)
+Completed 200 OK in 591ms (Views: 576.2ms | ActiveRecord: 5.1ms | Allocations: 5395)
+
+
+Started GET "/login" for ::1 at 2020-06-08 19:19:59 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/elections" for ::1 at 2020-06-08 19:20:05 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:20:05 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 2128)
+
+
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.81ms)
+Completed 200 OK in 804ms (Views: 792.0ms | ActiveRecord: 6.7ms | Allocations: 5626)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:20:22 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:20:22 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mElection Load (1.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.67ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 1.3ms | Allocations: 3702)
+
+
+[active_model_serializers]   [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (585.98ms)
+Completed 200 OK in 605ms (Views: 595.9ms | ActiveRecord: 3.4ms | Allocations: 5888)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:21:35 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:21:35 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.69ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.5ms | Allocations: 2089)
+
+
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.16ms)
+Completed 200 OK in 796ms (Views: 782.2ms | ActiveRecord: 11.0ms | Allocations: 5545)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:23:21 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:23:21 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mElection Load (2.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 71ms (Views: 68.1ms | ActiveRecord: 2.3ms | Allocations: 3428)
+
+
+[active_model_serializers]   [1m[36mFollow Load (0.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1503.58ms)
+Completed 200 OK in 1576ms (Views: 1569.2ms | ActiveRecord: 2.3ms | Allocations: 5540)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:23:56 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:23:56 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (2.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.19ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 2.1ms | Allocations: 2737)
+
+
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.51ms)
+Completed 200 OK in 329ms (Views: 315.8ms | ActiveRecord: 10.8ms | Allocations: 5377)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:24:44 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:24:44 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.79ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 3204)
+
+
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.19ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.8ms | Allocations: 2089)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:26:29 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:26:29 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mElection Load (6.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.51ms)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 6.8ms | Allocations: 3733)
+
+
+[active_model_serializers]   [1m[36mFollow Load (10.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (76.16ms)
+Completed 200 OK in 87ms (Views: 70.7ms | ActiveRecord: 12.8ms | Allocations: 5536)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:28:14 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:28:14 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (1.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.73ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 1.2ms | Allocations: 3298)
+
+
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.42ms)
+Completed 200 OK in 16ms (Views: 8.4ms | ActiveRecord: 0.8ms | Allocations: 5385)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:30:04 -0400
+Started GET "/elections" for ::1 at 2020-06-08 19:30:04 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mElection Load (1.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.08ms)
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 1.5ms | Allocations: 3425)
+
+
+[active_model_serializers]   [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (229.41ms)
+Completed 200 OK in 244ms (Views: 238.1ms | ActiveRecord: 1.9ms | Allocations: 5533)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:30:31 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 19:30:31 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (12.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.42ms)
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 23ms (Views: 10.1ms | ActiveRecord: 12.1ms | Allocations: 2827)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (0.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.6ms)
+Completed 200 OK in 24ms (Views: 9.1ms | ActiveRecord: 9.1ms | Allocations: 5385)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:30:36 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.94ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:30:54 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.23ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:32:57 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (6.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.88ms)
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 6.6ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:35:42 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.38ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 1.0ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:36:12 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.53ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.8ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:37:41 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 1.1ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 19:39:04 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.34ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.7ms | Allocations: 2089)
+
+
+Started POST "/users/login" for ::1 at 2020-06-08 19:39:16 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"steph.zou16@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"steph.zou16@gmail.com"}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:31:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.58ms)
+Completed 200 OK in 329ms (Views: 3.6ms | ActiveRecord: 3.6ms | Allocations: 2468)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 20:57:52 -0400
+Started GET "/elections" for ::1 at 2020-06-08 20:57:52 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (11.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.06ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 123ms (Views: 96.3ms | ActiveRecord: 11.1ms | Allocations: 3690)
+
+
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (2.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (46.88ms)
+Completed 200 OK in 165ms (Views: 88.6ms | ActiveRecord: 25.9ms | Allocations: 5527)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-08 21:03:07 -0400
+Started GET "/elections" for ::1 at 2020-06-08 21:03:07 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (9.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.25ms)
+Completed 200 OK in 76ms (Views: 60.9ms | ActiveRecord: 9.0ms | Allocations: 2118)
+
+
+  [1m[36mUser Load (127.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+[active_model_serializers]   [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:42:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (333.51ms)
+Completed 200 OK in 560ms (Views: 360.4ms | ActiveRecord: 148.9ms | Allocations: 5578)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:03:57 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (6.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.15ms)
+Completed 200 OK in 62ms (Views: 55.3ms | ActiveRecord: 6.5ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:05:18 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.1ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.6ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:05:31 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (5.9ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.03ms)
+Completed 200 OK in 31ms (Views: 24.2ms | ActiveRecord: 5.9ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:06:27 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.65ms)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 1.1ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:06:32 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.4ms)
+Completed 200 OK in 665ms (Views: 34.2ms | ActiveRecord: 0.7ms | Allocations: 2094)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:07:45 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.29ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:08:34 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.05ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.4ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:08:36 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.3ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:08:45 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.85ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.6ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:09:45 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.08ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 1.3ms | Allocations: 2089)
+
+
+Started GET "/elections" for ::1 at 2020-06-08 21:10:45 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.9ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.63ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.9ms | Allocations: 2089)
+
+
+Started POST "/users/login" for ::1 at 2020-06-08 21:12:17 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"steph.zou16@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"steph.zou16@gmail.com"}}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:31:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (23.91ms)
+Completed 200 OK in 447ms (Views: 24.8ms | ActiveRecord: 4.6ms | Allocations: 2352)
+
+
