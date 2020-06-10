@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   post '/follows', to: 'follows#create'
   delete '/follows/:id', to: 'follows#destroy'
-  resources :follows
+  get '/follow/:id', to: 'follows#show'
+  get '/follows', to: 'follows#index'
   resources :elections
   resources :hometowns
   resources :users

@@ -12,9 +12,12 @@ class FollowsController < ApplicationController
     end
 
     def create
-        user_id = @user.id 
+        # byebug;
+        # user_id = @user.id 
+        user_id = params[:follow][:user_id]
         election_id = params[:follow][:election_id]
-        @follow = Follow.create(user_id: user_id, election_id: election_id)
+        # @follow = Follow.create(user_id: user_id, election_id: election_id)
+        @follow = Follow.create(params.permit(:user_id, :election_id))
         if @follow.valid?
             render json: @follow, status: 201
         else
@@ -31,7 +34,7 @@ class FollowsController < ApplicationController
     private
 
     def follow_params
-        params.require(:follow).permit(:user_id, :election_id)
+        params.permit(:user_id, :election_id)
     end
 
     def set_follow
