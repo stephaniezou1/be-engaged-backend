@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/users/login', to: 'users#login'
   get '/profile', to: 'users#show'
   post '/follows', to: 'follows#create'
+  delete '/follows/:id', to: 'follows#destroy'
   resources :follows
   resources :elections
   resources :hometowns

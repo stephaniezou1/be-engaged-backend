@@ -10,6 +10,8 @@ require 'rest-client'
 
 User.destroy_all
 Election.destroy_all
+Follow.destroy_all
+
 
 stephanie = User.create!(
     name: "Stephanie", 
@@ -51,5 +53,12 @@ elections_object.each do |election|
     )
 end
 puts "elections seeded"
+
+10.times do 
+    Follow.create(
+        user: stephanie,
+        election: Election.all.sample
+    )
+end
 
 

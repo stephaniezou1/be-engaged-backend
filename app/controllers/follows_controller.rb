@@ -1,16 +1,31 @@
 class FollowsController < ApplicationController
-    before_action :authorized 
+    before_action :authorized, only: [:stay_logged_in]
+    before_action :set_follow, only: [:show, :destroy]
 
     def index
         @follows = Follow.all
         render json: @follows
     end
 
+    def show
+        render json: @follow
+    end
+
     def create
         user_id = @user.id 
-        election_id = @election.electionId
-        @follow = Follow.find_or_create_by(user_id: user_id, election_id: election_id)
-        render json: {follow: FollowSerializer.new(@follow)}, status: 201
+        election_id = params[:follow][:election_id]
+        @follow = Follow.create(user_id: user_id, election_id: election_id)
+        if @follow.valid?
+            render json: @follow, status: 201
+        else
+            render json: {message: "Couldn't follow this election"}
+        end
+    end
+
+    def destroy
+        # byebug;
+        @follow.destroy
+        render json: @follow
     end
 
     private
@@ -19,7 +34,7 @@ class FollowsController < ApplicationController
         params.require(:follow).permit(:user_id, :election_id)
     end
 
-    def find_follow
-        params.require(:follow).permit(:user_id, :election_id)
+    def set_follow
+        @follow = Follow.find(params[:id])
     end
 end

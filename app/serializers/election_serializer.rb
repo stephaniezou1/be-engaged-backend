@@ -1,3 +1,3 @@
 class ElectionSerializer < ActiveModel::Serializer
-  attributes :electionId, :name, :electionDay, :ocdDivisionId
+  attributes :id, :electionId, :name, :electionDay, :ocdDivisionId
 end
