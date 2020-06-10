@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-    before_action :authorized, only: [:stay_logged_in]
+    before_action :authorized, only: [:set_follow, :create, :destroy]
     before_action :set_follow, only: [:show, :destroy]
 
     def index
@@ -12,12 +12,9 @@ class FollowsController < ApplicationController
     end
 
     def create
-        # byebug;
-        # user_id = @user.id 
-        user_id = params[:follow][:user_id]
+        user_id = @user.id 
         election_id = params[:follow][:election_id]
-        # @follow = Follow.create(user_id: user_id, election_id: election_id)
-        @follow = Follow.create(params.permit(:user_id, :election_id))
+        @follow = Follow.create(user_id: user_id, election_id: election_id)
         if @follow.valid?
             render json: @follow, status: 201
         else
@@ -26,7 +23,6 @@ class FollowsController < ApplicationController
     end
 
     def destroy
-        # byebug;
         @follow.destroy
         render json: @follow
     end
@@ -38,6 +34,6 @@ class FollowsController < ApplicationController
     end
 
     def set_follow
-        @follow = Follow.find(params[:id])
+        @follow = @user.follows.find(params[:id])
     end
 end
