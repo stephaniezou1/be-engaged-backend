@@ -1,3 +1,3 @@
 class HometownSerializer < ActiveModel::Serializer
-  attributes :id, :pollingLocations, :contests, :elections
+  attributes :id, :pollingLocations, :contests
 end

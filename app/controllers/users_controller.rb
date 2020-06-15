@@ -1,21 +1,38 @@
 class UsersController < ApplicationController
+
     before_action :authorized, only: [:stay_logged_in]
     before_action :set_user, only: [:show, :edit, :update]
 
+    require 'rest-client'
+    
     def index
         @users = User.all
         render json: @users
     end
-
+    
     def show
         render json: @user
     end
-
+    
     def create
-        @user = User.create(user_params())
+        api_key = ENV['google_api_key']
+        hometowns = RestClient.get "https://www.googleapis.com/civicinfo/v2/voterinfo?key=#{api_key}&address=#{params["line1"]}%20#{params["city"]}%20#{params["state"]}%20#{params["zip_code"]}&electionId=2000"
+            results = JSON.parse(hometowns)
+            polling_addresses = results["pollingLocations"][0]["address"].to_json
+        @hometown = Hometown.find_or_create_by(pollingLocations: polling_addresses)
+        @user = User.create(
+            name: params["name"],
+            email: params["email"], 
+            password: params["password"], 
+            line1: params["line1"], 
+            city: params["city"], 
+            state: params["state"], 
+            zip_code: params["zip_code"], 
+            hometown_id: @hometown.id
+        )
         if @user.valid?
-          wristband = encode_token({user_id: @user.id})
-          render json: {
+            wristband = encode_token({user_id: @user.id})
+        render json: {
             user: UserSerializer.new(@user),
             token: wristband
           }
@@ -46,7 +63,9 @@ class UsersController < ApplicationController
     end
 
     def update
+        # byebug;
         @user.update(user_params)
+        @user.update_hometown
         render json: @user
     end
 
@@ -57,7 +76,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code)
+        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code, :hometown_id)
     end
 
 end

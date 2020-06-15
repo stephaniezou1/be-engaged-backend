@@ -8,10 +8,21 @@
 
 require 'rest-client'
 
+Hometown.destroy_all
 User.destroy_all
 Election.destroy_all
 Follow.destroy_all
 
+# hometown1 = Hometown.create!(
+#     pollingLocations: "Associated Blind, 135 West 23 Street,
+#     city: New York, state: NY, zip: 10011"
+# )
+
+hometown1 = Hometown.create!(
+    pollingLocations: {
+        "locationName": "Sorry, we couldn't find polling locations near you"
+    }.to_json
+)
 
 stephanie = User.create!(
     name: "Stephanie", 
@@ -20,7 +31,9 @@ stephanie = User.create!(
     line1: "200 E 11th Street", 
     city: "New York", 
     state: "NY", 
-    zip_code: "10003")
+    zip_code: "10003",
+    hometown_id: hometown1.id
+)
 
 alisha = User.create!(
     name: "Alisha", 
@@ -29,7 +42,9 @@ alisha = User.create!(
     line1: "375 N La Cienega Blvd", 
     city: "West Hollywood", 
     state: "CA", 
-    zip_code: "90048")
+    zip_code: "90048",
+    hometown_id: hometown1.id
+)
 
 naomi = User.create!(
     name: "Naomi", 
@@ -38,7 +53,9 @@ naomi = User.create!(
     line1: "20722 2nd Avenue West", 
     city: "Cudjoe Key", 
     state: "FL", 
-    zip_code: "33042")
+    zip_code: "33042",
+    hometown_id: hometown1.id
+)
 
 api_key = ENV['google_api_key']
 elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=#{api_key}"
@@ -56,7 +73,7 @@ puts "elections seeded"
 
 10.times do 
     Follow.create(
-        user: stephanie,
+        user: naomi,
         election: Election.all.sample
     )
 end
