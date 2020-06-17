@@ -1,24 +1,63 @@
-# README
+## Ruby on Rails API
+* Ruby on Rails API for the Be Engaged backend.
+* This API consists of 4 domain models with `has_many` and `belongs_to` associations.
+* Pulls in election and polling station data from [Google Civic Information API](https://developers.google.com/civic-information/docs/using_api).
+* Developed SMS notification feature with the [Twilio API](https://www.twilio.com/).
+* See frontend Github link [here](https://github.com/stephaniezou1/be-engaged-frontend)
+* Built by [Stephanie Zou](https://github.com/stephaniezou1).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+To get started, you will only need Ruby on Rails and Postgres. To do so, you must have Homebrew and Ruby installed first.
 
-* Ruby version
+### Node installation on OS X
 
-* System dependencies
+In your terminal...
 
-* Configuration
+1. Install [Homebrew](https://brew.sh/)
 
-* Database creation
+    ```$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"```
+  
+2. Install [Ruby](https://www.ruby-lang.org/en/)
+    
+    ```$ brew install ruby```
 
-* Database initialization
+3. Install [Rails](https://rubyonrails.org/)
 
-* How to run the test suite
+    ```$ gem install rails```
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Install [PostgreSQL](https://www.postgresql.org/)
 
-* Deployment instructions
+    ```$ brew install postgresql```
 
-* ...
+
+## Installation
+
+1. Clone the repo and cd into the folder
+2. Bundle Install
+
+    ```$ bundle install```
+    
+3. Create migrations, migrate and seed:
+
+    ```
+    $ rails db:create
+    $ rails db:migrate
+    $ rails db:seed
+## Launch The Server
+
+1. Last step, launch the rails server!
+    ```$ rails s```
+    
+    ### Start developing!
+
+
+## Tools
+
+* [Rack CORS](https://github.com/cyu/rack-cors): description
+* [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers): description
+* [Google Civic Information API](https://developers.google.com/civic-information/docs/using_api)
+* [Twilio API](https://www.twilio.com/)
+
+## Live demo
+Coming soon!
