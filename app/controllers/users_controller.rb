@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
     require 'rest-client'
     require 'twilio-ruby'
-    
+    require 'rubygems'
+        
     def index
         @users = User.all
         render json: @users
@@ -18,8 +19,8 @@ class UsersController < ApplicationController
     def create
         api_key = ENV['google_api_key']
         hometowns = RestClient.get "https://www.googleapis.com/civicinfo/v2/voterinfo?key=#{api_key}&address=#{params["line1"]}%20#{params["city"]}%20#{params["state"]}%20#{params["zip_code"]}&electionId=2000"
-            results = JSON.parse(hometowns)
-            polling_addresses = results["pollingLocations"][0]["address"].to_json
+        results = JSON.parse(hometowns)
+        polling_addresses = results["pollingLocations"][0]["address"].to_json
         @hometown = Hometown.find_or_create_by(pollingLocations: polling_addresses)
         @user = User.create(
             name: params["name"],
@@ -71,7 +72,23 @@ class UsersController < ApplicationController
         render json: @user
     end
 
-    
+    def twilio(phone, text)
+        account_sid = ENV['twilio_account_sid'] 
+        auth_token = ENV['twilio_auth_token']
+        @client = Twilio::REST::Client.new account_sid, auth_token
+        message = @client.messages.create(
+            body: text,
+            to: phone,    # Replace with your phone number
+            from: ENV['twilio_phone_number'])  # Use this Magic Number for creating SMS
+        puts message.sid
+    end
+
+    def send_text
+        # byebug;
+        @user = User.find(params[:id])
+        message = "Thanks for signing up #{@user.name}, we will text you when the deadline of the election approaches"
+        twilio(ENV['my_phone_number'], message)
+    end
 
     private
 

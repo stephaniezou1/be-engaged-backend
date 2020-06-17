@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/follows/:id', to: 'follows#destroy'
   get '/follow/:id', to: 'follows#show'
   get '/follows', to: 'follows#index'
-  post '/notification', to: 'users#notification'
+  get '/users/:id/send_text', to: 'users#send_text'
   resources :elections
   resources :hometowns
   resources :users
