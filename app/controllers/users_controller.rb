@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
 
     require 'rest-client'
+    require 'twilio-ruby'
     
     def index
         @users = User.all
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
             city: params["city"], 
             state: params["state"], 
             zip_code: params["zip_code"], 
+            phone_number: params["phone_number"],
             hometown_id: @hometown.id
         )
         if @user.valid?
@@ -69,6 +71,8 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    
+
     private
 
     def set_user
@@ -76,7 +80,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code, :hometown_id)
+        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code, :phone_number, :hometown_id)
     end
 
 end

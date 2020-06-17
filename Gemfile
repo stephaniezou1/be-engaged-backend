@@ -53,3 +53,6 @@ gem 'figaro'
 
 # Another HTTParty
 gem 'rest-client'
+
+# twilio installed
+gem 'twilio-ruby'

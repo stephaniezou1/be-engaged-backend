@@ -32,6 +32,7 @@ stephanie = User.create!(
     city: "New York", 
     state: "NY", 
     zip_code: "10003",
+    phone_number: "+13056808962",
     hometown_id: hometown1.id
 )
 
@@ -43,6 +44,7 @@ alisha = User.create!(
     city: "West Hollywood", 
     state: "CA", 
     zip_code: "90048",
+    phone_number: "+14135398001",
     hometown_id: hometown1.id
 )
 
@@ -54,6 +56,7 @@ naomi = User.create!(
     city: "Cudjoe Key", 
     state: "FL", 
     zip_code: "33042",
+    phone_number: "+13901006386",
     hometown_id: hometown1.id
 )
 
