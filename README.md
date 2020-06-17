@@ -3,6 +3,7 @@
 * This API consists of 4 domain models with `has_many` and `belongs_to` associations.
 * Pulls in election and polling station data from [Google Civic Information API](https://developers.google.com/civic-information/docs/using_api).
 * Developed SMS notification feature with the [Twilio API](https://www.twilio.com/).
+* See frontend Github link [here](https://github.com/stephaniezou1/be-engaged-frontend)
 * Built by [Stephanie Zou](https://github.com/stephaniezou1).
 
 ## Getting Started
