@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :state
       t.string :zip_code
-      t.string :phone_number
       t.integer :hometown_id
       t.timestamps
     end

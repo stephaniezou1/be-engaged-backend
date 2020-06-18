@@ -13,11 +13,6 @@ User.destroy_all
 Election.destroy_all
 Follow.destroy_all
 
-# hometown1 = Hometown.create!(
-#     pollingLocations: "Associated Blind, 135 West 23 Street,
-#     city: New York, state: NY, zip: 10011"
-# )
-
 hometown1 = Hometown.create!(
     pollingLocations: {
         "locationName": "Sorry, we couldn't find polling locations near you"
@@ -32,7 +27,6 @@ stephanie = User.create!(
     city: "New York", 
     state: "NY", 
     zip_code: "10003",
-    phone_number: "+13056808962",
     hometown_id: hometown1.id
 )
 
@@ -44,7 +38,6 @@ alisha = User.create!(
     city: "West Hollywood", 
     state: "CA", 
     zip_code: "90048",
-    phone_number: "+14135398001",
     hometown_id: hometown1.id
 )
 
@@ -56,14 +49,12 @@ naomi = User.create!(
     city: "Cudjoe Key", 
     state: "FL", 
     zip_code: "33042",
-    phone_number: "+13901006386",
     hometown_id: hometown1.id
 )
 
 api_key = ENV['google_api_key']
 elections = RestClient.get "https://www.googleapis.com/civicinfo/v2/elections?key=#{api_key}"
 elections_object = JSON.parse(elections)["elections"]
-# byebug;
 elections_object.each do |election|
     Election.create(
         electionId: election["id"],

@@ -30,7 +30,6 @@ class UsersController < ApplicationController
             city: params["city"], 
             state: params["state"], 
             zip_code: params["zip_code"], 
-            phone_number: params["phone_number"],
             hometown_id: @hometown.id
         )
         if @user.valid?
@@ -66,7 +65,6 @@ class UsersController < ApplicationController
     end
 
     def update
-        # byebug;
         @user.update(user_params)
         @user.update_hometown
         render json: @user
@@ -78,13 +76,12 @@ class UsersController < ApplicationController
         @client = Twilio::REST::Client.new account_sid, auth_token
         message = @client.messages.create(
             body: text,
-            to: phone,    # Replace with your phone number
-            from: ENV['twilio_phone_number'])  # Use this Magic Number for creating SMS
+            to: phone,    
+            from: ENV['twilio_phone_number']) 
         puts message.sid
     end
 
     def send_text
-        # byebug;
         @user = User.find(params[:id])
         message = "Thanks for signing up #{@user.name}, we will text you when the deadline of the election approaches"
         twilio(ENV['my_phone_number'], message)
@@ -97,7 +94,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code, :phone_number, :hometown_id)
+        params.permit(:name, :email, :password, :line1, :city, :state, :zip_code, :hometown_id)
     end
 
 end

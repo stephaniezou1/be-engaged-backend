@@ -25915,3 +25915,1384 @@ Processing by ElectionsController#index as */*
 Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.6ms | Allocations: 1824)
 
 
+Started GET "/elections" for ::1 at 2020-06-18 10:09:39 -0400
+  [1m[35m (25.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (21.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.26ms)
+Completed 200 OK in 370ms (Views: 180.6ms | ActiveRecord: 145.0ms | Allocations: 9964)
+
+
+Started POST "/users" for ::1 at 2020-06-18 10:11:36 -0400
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Cynthia Young", "email"=>"cynthiayoung@gmail.com", "password"=>"[FILTERED]", "line1"=>"44 Hudson Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10013", "phone_number"=>"4133456789", "user"=>{"name"=>"Cynthia Young", "email"=>"cynthiayoung@gmail.com", "line1"=>"44 Hudson Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10013", "phone_number"=>"4133456789"}}
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 26.3ms | Allocations: 3736)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started GET "/elections" for ::1 at 2020-06-18 10:13:44 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (4.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.95ms)
+Completed 200 OK in 69ms (Views: 62.6ms | ActiveRecord: 4.3ms | Allocations: 1843)
+
+
+Started POST "/users" for ::1 at 2020-06-18 10:14:29 -0400
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "password"=>"[FILTERED]", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10001", "phone_number"=>"3477217088", "user"=>{"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10001", "phone_number"=>"3477217088"}}
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 0.0ms | Allocations: 3181)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started GET "/elections" for ::1 at 2020-06-18 10:16:18 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.29ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 0.6ms | Allocations: 1842)
+
+
+Started POST "/users" for ::1 at 2020-06-18 10:22:15 -0400
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Xanthe Coffman", "email"=>"xanthecoffman@gmail.com", "password"=>"[FILTERED]", "line1"=>"76 N 4th Street", "city"=>"Brooklyn", "state"=>"NY", "zip_code"=>"11206", "phone_number"=>"+16666666666", "user"=>{"name"=>"Xanthe Coffman", "email"=>"xanthecoffman@gmail.com", "line1"=>"76 N 4th Street", "city"=>"Brooklyn", "state"=>"NY", "zip_code"=>"11206", "phone_number"=>"+16666666666"}}
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 0.0ms | Allocations: 3349)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started POST "/users/login" for ::1 at 2020-06-18 10:37:37 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"steph.zou16@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"steph.zou16@gmail.com"}}
+  [1m[36mUser Load (35.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:48:in `login'
+[active_model_serializers]   [1m[36mHometown Load (5.2ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `login'
+[active_model_serializers]   [1m[36mFollow Load (17.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:51:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (376.09ms)
+Completed 200 OK in 1219ms (Views: 317.4ms | ActiveRecord: 117.2ms | Allocations: 26386)
+
+
+Started POST "/follows" for ::1 at 2020-06-18 10:37:55 -0400
+Processing by FollowsController#create as */*
+  Parameters: {"election_id"=>4, "follow"=>{"election_id"=>4}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (25.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections" WHERE "elections"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Create (61.6ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["election_id", 4], ["created_at", "2020-06-18 14:37:55.347200"], ["updated_at", "2020-06-18 14:37:55.347200"]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (18.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."id" != $2 AND "follows"."user_id" = $3 LIMIT $4[0m  [["election_id", 4], ["id", 15], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:18:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 201 Created in 241ms (Views: 3.1ms | ActiveRecord: 110.0ms | Allocations: 14815)
+
+
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 10:38:01 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:87:in `send_text'
+Completed 204 No Content in 334ms (ActiveRecord: 0.6ms | Allocations: 2852)
+
+
+Started DELETE "/follows/13" for ::1 at 2020-06-18 10:38:09 -0400
+Processing by FollowsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1 AND "follows"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:37:in `set_follow'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[36mFollow Destroy (31.3ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 67ms (Views: 5.6ms | ActiveRecord: 41.8ms | Allocations: 4608)
+
+
+Started DELETE "/follows/14" for ::1 at 2020-06-18 10:38:11 -0400
+Processing by FollowsController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mFollow Load (10.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1 AND "follows"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:37:in `set_follow'
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[36mFollow Destroy (19.5ms)[0m  [1m[31mDELETE FROM "follows" WHERE "follows"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:26:in `destroy'
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 100ms (Views: 5.8ms | ActiveRecord: 75.9ms | Allocations: 4582)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 10:38:27 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"1475 Stanford Ave", "city"=>"Palo Alto", "state"=>"California", "zip_code"=>"94306", "id"=>"1", "user"=>{"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"1475 Stanford Ave", "city"=>"Palo Alto", "state"=>"California", "zip_code"=>"94306"}}
+  [1m[36mUser Load (23.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:95:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:70:in `update'
+  [1m[36mHometown Load (6.6ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `update'
+  [1m[36mUser Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `update'
+  [1m[36mUser Update (36.8ms)[0m  [1m[33mUPDATE "users" SET "line1" = $1, "city" = $2, "state" = $3, "zip_code" = $4, "updated_at" = $5 WHERE "users"."id" = $6[0m  [["line1", "1475 Stanford Ave"], ["city", "Palo Alto"], ["state", "California"], ["zip_code", "94306"], ["updated_at", "2020-06-18 14:38:28.002200"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `update'
+  [1m[35m (27.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:70:in `update'
+Completed 500 Internal Server Error in 467ms (ActiveRecord: 218.6ms | Allocations: 9012)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/models/user.rb:15:in `update_hometown'
+app/controllers/users_controller.rb:71:in `update'
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:38:34 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:38:34 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (18.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.45ms)
+Completed 200 OK in 40ms (Views: 21.0ms | ActiveRecord: 18.1ms | Allocations: 2180)
+
+
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (0.9ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (22.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (36.27ms)
+Completed 200 OK in 284ms (Views: 256.6ms | ActiveRecord: 24.6ms | Allocations: 4893)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:40:58 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:40:58 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (26.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mElection Load (27.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.26ms)
+[active_model_serializers]   [1m[36mHometown Load (115.6ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 147ms (Views: 118.6ms | ActiveRecord: 27.0ms | Allocations: 3446)
+
+
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (28.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1005.96ms)
+Completed 200 OK in 1038ms (Views: 865.4ms | ActiveRecord: 170.1ms | Allocations: 7220)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:41:26 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+Started GET "/elections" for ::1 at 2020-06-18 10:41:26 -0400
+[active_model_serializers]   [1m[36mHometown Load (4.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+Processing by ElectionsController#index as */*
+[active_model_serializers]   [1m[36mFollow Load (3.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:62:in `stay_logged_in'
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.44ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1089.88ms)
+Completed 200 OK in 1079ms (Views: 1078.0ms | ActiveRecord: 0.7ms | Allocations: 3460)
+
+
+Completed 200 OK in 1100ms (Views: 1088.6ms | ActiveRecord: 8.9ms | Allocations: 7364)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:42:03 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:42:03 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (65.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.14ms)
+Completed 200 OK in 239ms (Views: 102.8ms | ActiveRecord: 119.1ms | Allocations: 19411)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (5.6ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (16.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (191.99ms)
+Completed 200 OK in 390ms (Views: 127.0ms | ActiveRecord: 171.3ms | Allocations: 30810)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 10:42:14 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:94:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mHometown Load (12.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "line1" = $1, "city" = $2, "state" = $3, "zip_code" = $4, "updated_at" = $5 WHERE "users"."id" = $6[0m  [["line1", "160 W 24th St, 9B"], ["city", "New York"], ["state", "NY"], ["zip_code", "10011"], ["updated_at", "2020-06-18 14:42:14.304931"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 54.1ms | Allocations: 9508)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/models/user.rb:15:in `update_hometown'
+app/controllers/users_controller.rb:70:in `update'
+Started GET "/users/1" for ::1 at 2020-06-18 10:43:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:94:in `set_user'
+[active_model_serializers]   [1m[36mHometown Load (3.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mFollow Load (0.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (13.62ms)
+Completed 200 OK in 22ms (Views: 12.4ms | ActiveRecord: 6.2ms | Allocations: 4012)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:44:21 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:44:21 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (235.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mElection Load (236.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.07ms)
+Completed 200 OK in 252ms (Views: 14.8ms | ActiveRecord: 236.8ms | Allocations: 3413)
+
+
+[active_model_serializers]   [1m[36mHometown Load (4.9ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (19.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (885.41ms)
+Completed 200 OK in 1139ms (Views: 868.5ms | ActiveRecord: 260.0ms | Allocations: 6844)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 10:45:09 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:45:09 -0400
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (4.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.11ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 4.2ms | Allocations: 3426)
+
+
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (2.1ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.23ms)
+Completed 200 OK in 581ms (Views: 568.9ms | ActiveRecord: 5.6ms | Allocations: 6701)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:45:27 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:45:27 -0400
+Processing by UsersController#stay_logged_in as */*
+Processing by ElectionsController#index as */*
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mElection Load (13.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.99ms)
+Completed 200 OK in 19ms (Views: 5.3ms | ActiveRecord: 13.8ms | Allocations: 3410)
+
+
+[active_model_serializers]   [1m[36mHometown Load (3.0ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1995.76ms)
+Completed 200 OK in 2013ms (Views: 1995.5ms | ActiveRecord: 14.8ms | Allocations: 6842)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:45:34 -0400
+Processing by UsersController#stay_logged_in as */*
+Started GET "/elections" for ::1 at 2020-06-18 10:45:34 -0400
+  [1m[36mUser Load (88.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (214.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by ElectionsController#index as */*
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+  [1m[36mElection Load (179.1ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+[active_model_serializers]   [1m[36mFollow Load (178.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.69ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3132.18ms)
+Completed 200 OK in 2910ms (Views: 2730.8ms | ActiveRecord: 179.1ms | Allocations: 3749)
+
+
+Completed 200 OK in 3226ms (Views: 2742.5ms | ActiveRecord: 481.0ms | Allocations: 7320)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 10:47:09 -0400
+Started GET "/elections" for ::1 at 2020-06-18 10:47:09 -0400
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ElectionsController#index as */*
+  [1m[35m (56.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mElection Load (4.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+Processing by UsersController#stay_logged_in as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.3ms)
+Completed 200 OK in 115ms (Views: 56.1ms | ActiveRecord: 37.1ms | Allocations: 15262)
+
+
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (110.63ms)
+Completed 200 OK in 289ms (Views: 98.1ms | ActiveRecord: 112.7ms | Allocations: 35137)
+
+
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (192.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (96.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (560.5ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (152.3ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (118.1ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (32.7ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (5.4ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (6.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:49:04.182124"], ["updated_at", "2020-06-18 14:49:04.182124"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:49:04.199585"], ["updated_at", "2020-06-18 14:49:04.199585"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (52.4ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (13.5ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (6.0ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:49:04.556480"], ["updated_at", "2020-06-18 14:49:04.556480"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 14:49:04.572380"], ["key", "environment"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:49:04.582362"], ["updated_at", "2020-06-18 14:49:04.582362"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (1.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (3.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (1.7ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 14:49:04.811671"], ["updated_at", "2020-06-18 14:49:04.811671"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (13.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (70.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (61.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (372.6ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (142.0ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:49:51.496468"], ["updated_at", "2020-06-18 14:49:51.496468"]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:49:51.522441"], ["updated_at", "2020-06-18 14:49:51.522441"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:49:51.760816"], ["updated_at", "2020-06-18 14:49:51.760816"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 14:49:51.770673"], ["key", "environment"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:49:51.784887"], ["updated_at", "2020-06-18 14:49:51.784887"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (0.9ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (0.9ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 14:49:51.918013"], ["updated_at", "2020-06-18 14:49:51.918013"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Stephanie"], ["email", "steph.zou16@gmail.com"], ["password_digest", "$2a$12$xnsIdCyJJ669RrCcmZqy.uVVS4ZB7gv5CiBLzcagJiboKSfvQEXHq"], ["line1", "200 E 11th Street"], ["city", "New York"], ["state", "NY"], ["zip_code", "10003"], ["hometown_id", 1], ["created_at", "2020-06-18 14:49:52.274771"], ["updated_at", "2020-06-18 14:49:52.274771"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "alishazou@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Alisha"], ["email", "alishazou@gmail.com"], ["password_digest", "$2a$12$1GN32N/HXw4cjb0R5pMUVeh..qOHy0SiAaIrmrDJD.4jLlkW.EvFi"], ["line1", "375 N La Cienega Blvd"], ["city", "West Hollywood"], ["state", "CA"], ["zip_code", "90048"], ["hometown_id", 1], ["created_at", "2020-06-18 14:49:52.579288"], ["updated_at", "2020-06-18 14:49:52.579288"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "naomielegant@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Naomi"], ["email", "naomielegant@gmail.com"], ["password_digest", "$2a$12$7B9Kj927QsTMrLspHfRkCeAWiGiTyCRDyovBwxnEbo7DbD6/FJG9u"], ["line1", "20722 2nd Avenue West"], ["city", "Cudjoe Key"], ["state", "FL"], ["zip_code", "33042"], ["hometown_id", 1], ["created_at", "2020-06-18 14:49:52.882386"], ["updated_at", "2020-06-18 14:49:52.882386"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (64.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (72.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (262.8ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (146.2ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:55:42.564101"], ["updated_at", "2020-06-18 14:55:42.564101"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:55:42.584838"], ["updated_at", "2020-06-18 14:55:42.584838"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (4.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:55:42.807477"], ["updated_at", "2020-06-18 14:55:42.807477"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 14:55:42.817809"], ["key", "environment"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:55:42.826500"], ["updated_at", "2020-06-18 14:55:42.826500"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (1.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (0.9ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 14:55:42.959790"], ["updated_at", "2020-06-18 14:55:42.959790"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.3ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Stephanie"], ["email", "steph.zou16@gmail.com"], ["password_digest", "$2a$12$U9gS8PDoqeC6XTTrgzUZBO7AOZr6sMKfTiuIK6xAM66MclyAHipdW"], ["line1", "200 E 11th Street"], ["city", "New York"], ["state", "NY"], ["zip_code", "10003"], ["hometown_id", 1], ["created_at", "2020-06-18 14:55:43.354114"], ["updated_at", "2020-06-18 14:55:43.354114"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "alishazou@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Alisha"], ["email", "alishazou@gmail.com"], ["password_digest", "$2a$12$Sdrbc7x9YM9YnEQdjDESTe7324u9vfkOGtNhdr8uMwo9UbvprfST."], ["line1", "375 N La Cienega Blvd"], ["city", "West Hollywood"], ["state", "CA"], ["zip_code", "90048"], ["hometown_id", 1], ["created_at", "2020-06-18 14:55:43.694545"], ["updated_at", "2020-06-18 14:55:43.694545"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "naomielegant@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Naomi"], ["email", "naomielegant@gmail.com"], ["password_digest", "$2a$12$arSYYwbbkt0FGuKDIVJmjeo9qgnZKYUHfEu5Hqs/NbmOPbxIXXbCm"], ["line1", "20722 2nd Avenue West"], ["city", "Cudjoe Key"], ["state", "FL"], ["zip_code", "33042"], ["hometown_id", 1], ["created_at", "2020-06-18 14:55:44.045003"], ["updated_at", "2020-06-18 14:55:44.045003"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (183.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (74.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (335.5ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (164.3ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:58:58.186493"], ["updated_at", "2020-06-18 14:58:58.186493"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:58:58.217625"], ["updated_at", "2020-06-18 14:58:58.217625"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (4.1ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:58:58.449909"], ["updated_at", "2020-06-18 14:58:58.449909"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 14:58:58.481246"], ["key", "environment"]]
+  [1m[35m (12.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4b39588f1fed22bf392a8f73d454ea0e608c1da1"], ["created_at", "2020-06-18 14:58:58.500974"], ["updated_at", "2020-06-18 14:58:58.500974"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (1.0ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (1.1ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 14:58:58.638319"], ["updated_at", "2020-06-18 14:58:58.638319"]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Stephanie"], ["email", "steph.zou16@gmail.com"], ["password_digest", "$2a$12$91FHuVF.wE/aHSqMXIAHFux5nV3UPdkOfaF3H3KBGEJLD6/wId2ne"], ["line1", "200 E 11th Street"], ["city", "New York"], ["state", "NY"], ["zip_code", "10003"], ["hometown_id", 1], ["created_at", "2020-06-18 14:58:59.038859"], ["updated_at", "2020-06-18 14:58:59.038859"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "alishazou@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Alisha"], ["email", "alishazou@gmail.com"], ["password_digest", "$2a$12$539QUkVr5Av1QcuthJ8vIutHw7qhW1X3AlmgZrEf46P8Q/SU.Ubz."], ["line1", "375 N La Cienega Blvd"], ["city", "West Hollywood"], ["state", "CA"], ["zip_code", "90048"], ["hometown_id", 1], ["created_at", "2020-06-18 14:58:59.414227"], ["updated_at", "2020-06-18 14:58:59.414227"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "naomielegant@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Naomi"], ["email", "naomielegant@gmail.com"], ["password_digest", "$2a$12$CMVT6mS/Hk85PggVNKLSweVe4ZwZuTmGMcyncOcwJgf2LPd3fJtCm"], ["line1", "20722 2nd Avenue West"], ["city", "Cudjoe Key"], ["state", "FL"], ["zip_code", "33042"], ["hometown_id", 1], ["created_at", "2020-06-18 14:58:59.772717"], ["updated_at", "2020-06-18 14:58:59.772717"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (15.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFollows (20200603193931)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.0ms)[0m  [1m[35mDROP TABLE "follows"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200603193931"]]
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateElections (20200603193741)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.6ms)[0m  [1m[35mDROP TABLE "elections"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200603193741"]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHometowns (20200603193654)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE "hometowns"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200603193654"]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200601173027)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200601173027"]]
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200601173027)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200601173027"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHometowns (20200603193654)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603193654"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateElections (20200603193741)
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603193741"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFollows (20200603193931)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603193931"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (93.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (63.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (470.9ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (252.3ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (26.0ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (45.0ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (5.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 15:05:25.123352"], ["updated_at", "2020-06-18 15:05:25.123352"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "697722b11c895a5d5d9da79b12af91a40e335009"], ["created_at", "2020-06-18 15:05:25.149001"], ["updated_at", "2020-06-18 15:05:25.149001"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (28.7ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 15:05:25.391357"], ["updated_at", "2020-06-18 15:05:25.391357"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 15:05:25.425899"], ["key", "environment"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "697722b11c895a5d5d9da79b12af91a40e335009"], ["created_at", "2020-06-18 15:05:25.437091"], ["updated_at", "2020-06-18 15:05:25.437091"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (1.2ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 15:05:25.576894"], ["updated_at", "2020-06-18 15:05:25.576894"]]
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Stephanie"], ["email", "steph.zou16@gmail.com"], ["password_digest", "$2a$12$5dvHV0aOcKrFcshGUT6PX..1vSwqR5xqA8pV.DLnies8inWVKjQKO"], ["line1", "200 E 11th Street"], ["city", "New York"], ["state", "NY"], ["zip_code", "10003"], ["hometown_id", 1], ["created_at", "2020-06-18 15:05:25.949412"], ["updated_at", "2020-06-18 15:05:25.949412"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "alishazou@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Alisha"], ["email", "alishazou@gmail.com"], ["password_digest", "$2a$12$kioB.WX1QcetmmvAYrOaS.2W8xDMD88hGBxlzC9rDtriYTWTddE8u"], ["line1", "375 N La Cienega Blvd"], ["city", "West Hollywood"], ["state", "CA"], ["zip_code", "90048"], ["hometown_id", 1], ["created_at", "2020-06-18 15:05:26.295395"], ["updated_at", "2020-06-18 15:05:26.295395"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (1.3ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "naomielegant@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Naomi"], ["email", "naomielegant@gmail.com"], ["password_digest", "$2a$12$oji3BZz5g8ET/evtt7tTseDhEj8zknwy6Pc/8G8Q/r.8q2L55s.CO"], ["line1", "20722 2nd Avenue West"], ["city", "Cudjoe Key"], ["state", "FL"], ["zip_code", "33042"], ["hometown_id", 1], ["created_at", "2020-06-18 15:05:26.619268"], ["updated_at", "2020-06-18 15:05:26.619268"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mHometown Load (2.9ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" ORDER BY "hometowns"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 11:12:27 -0400
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:86:in `send_text'
+Completed 204 No Content in 117438ms (ActiveRecord: 22.3ms | Allocations: 143110)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 11:14:51 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Tiffany Liang", "email"=>"stephanie.zou3@gmail.com", "line1"=>"1475 Stanford Ave", "city"=>"Palo Alto", "state"=>"California", "zip_code"=>"94306", "id"=>"1", "user"=>{"name"=>"Tiffany Liang", "email"=>"stephanie.zou3@gmail.com", "line1"=>"1475 Stanford Ave", "city"=>"Palo Alto", "state"=>"California", "zip_code"=>"94306"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:94:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (1.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Exists? (10.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "stephanie.zou3@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "line1" = $3, "city" = $4, "state" = $5, "zip_code" = $6, "updated_at" = $7 WHERE "users"."id" = $8[0m  [["name", "Tiffany Liang"], ["email", "stephanie.zou3@gmail.com"], ["line1", "1475 Stanford Ave"], ["city", "Palo Alto"], ["state", "California"], ["zip_code", "94306"], ["updated_at", "2020-06-18 15:14:52.534020"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+Completed 500 Internal Server Error in 515ms (ActiveRecord: 241.8ms | Allocations: 22702)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/models/user.rb:11:in `update_hometown'
+app/controllers/users_controller.rb:69:in `update'
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 11:16:57 -0400
+Started GET "/elections" for ::1 at 2020-06-18 11:16:57 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (15.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (10.1ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (19.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (441.78ms)
+Completed 200 OK in 916ms (Views: 366.4ms | ActiveRecord: 343.4ms | Allocations: 24136)
+
+
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (2.0ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 79ms (Views: 8.8ms | ActiveRecord: 44.7ms | Allocations: 2823)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 11:17:22 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:95:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mHometown Load (3.6ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Update (5.1ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "line1" = $3, "city" = $4, "state" = $5, "zip_code" = $6, "updated_at" = $7 WHERE "users"."id" = $8[0m  [["name", "Stephanie Zou"], ["email", "steph.zou16@gmail.com"], ["line1", "160 W 24th St, 9B"], ["city", "New York"], ["state", "NY"], ["zip_code", "10011"], ["updated_at", "2020-06-18 15:17:30.587966"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+Completed 500 Internal Server Error in 7982ms (ActiveRecord: 111.3ms | Allocations: 1590231)
+
+
+  
+RestClient::Forbidden (403 Forbidden):
+  
+app/models/user.rb:11:in `update_hometown'
+app/controllers/users_controller.rb:70:in `update'
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 11:17:53 -0400
+Started GET "/elections" for ::1 at 2020-06-18 11:17:54 -0400
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mUser Load (19.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (165.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (94.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1852.06ms)
+Completed 200 OK in 2804ms (Views: 1945.9ms | ActiveRecord: 304.3ms | Allocations: 2200497)
+
+
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (302.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.05ms)
+Completed 200 OK in 848ms (Views: 536.2ms | ActiveRecord: 302.2ms | Allocations: 302843)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 11:18:08 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Steph", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Steph", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:95:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (117.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ (byebug):1:in `update'
+  [1m[36mHometown Load (0.9ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `update'
+  [1m[36mUser Exists? (72.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `update'
+  [1m[36mUser Update (9.2ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Steph"], ["updated_at", "2020-06-18 15:18:21.632347"], ["id", 1]]
+  ↳ (byebug):1:in `update'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ (byebug):1:in `update'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (79.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Exists? (87.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+Completed 500 Internal Server Error in 81266ms (ActiveRecord: 459.0ms | Allocations: 1561002)
+
+
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 11:20:07 -0400
+Started GET "/elections" for ::1 at 2020-06-18 11:20:07 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#stay_logged_in as */*
+  [1m[35m (78.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (15.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 138ms (Views: 45.9ms | ActiveRecord: 26.9ms | Allocations: 6556)
+
+
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (1.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (123.48ms)
+Completed 200 OK in 493ms (Views: 149.7ms | ActiveRecord: 49.3ms | Allocations: 30048)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 11:20:18 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Stephanie", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Stephanie", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (343.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:95:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mUser Update (5.1ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Stephanie"], ["updated_at", "2020-06-18 15:20:29.012577"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:69:in `update'
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."pollingLocations" = $1 LIMIT $2[0m  [["pollingLocations", "{\"locationName\":\"Associated Blind\",\"line1\":\"135 West 23 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[36mHometown Create (0.7ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Associated Blind\",\"line1\":\"135 West 23 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["created_at", "2020-06-18 15:20:29.488011"], ["updated_at", "2020-06-18 15:20:29.488011"]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "hometown_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hometown_id", 2], ["updated_at", "2020-06-18 15:20:29.510210"], ["id", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+[active_model_serializers]   [1m[36mFollow Load (2.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:71:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (9.13ms)
+Completed 200 OK in 10656ms (Views: 7.6ms | ActiveRecord: 372.7ms | Allocations: 67232)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (142.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  [1m[35m (122.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  [1m[35m (481.9ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (128.0ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (4.5ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (11.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 15:23:54.594416"], ["updated_at", "2020-06-18 15:23:54.594416"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "697722b11c895a5d5d9da79b12af91a40e335009"], ["created_at", "2020-06-18 15:23:54.616924"], ["updated_at", "2020-06-18 15:23:54.616924"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "elections" CASCADE[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE "elections" ("id" bigserial primary key, "electionId" character varying, "name" character varying, "electionDay" character varying, "ocdDivisionId" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "user_id" bigint NOT NULL, "election_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_election_id" ON "follows"  ("election_id")[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_user_id" ON "follows"  ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hometowns" CASCADE[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE "hometowns" ("id" bigserial primary key, "pollingLocations" character varying, "contests" character varying, "elections" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "line1" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "hometown_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_cf746da9e2"
+FOREIGN KEY ("election_id")
+  REFERENCES "elections" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "follows" ADD CONSTRAINT "fk_rails_32479bd030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603193931)[0m
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200601173027),
+(20200603193654),
+(20200603193741);
+
+[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 15:23:54.895134"], ["updated_at", "2020-06-18 15:23:54.895134"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-06-18 15:23:54.927578"], ["key", "environment"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "697722b11c895a5d5d9da79b12af91a40e335009"], ["created_at", "2020-06-18 15:23:54.937194"], ["updated_at", "2020-06-18 15:23:54.937194"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mElection Load (0.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Create (1.0ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Sorry, we couldn't find polling locations near you\"}"], ["created_at", "2020-06-18 15:23:55.056407"], ["updated_at", "2020-06-18 15:23:55.056407"]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Stephanie"], ["email", "steph.zou16@gmail.com"], ["password_digest", "$2a$12$ds7TgCyQ8uCOwaBuF45jt.//18PVPyUBpqfLuYOAeYPJSXUinsvhq"], ["line1", "200 E 11th Street"], ["city", "New York"], ["state", "NY"], ["zip_code", "10003"], ["hometown_id", 1], ["created_at", "2020-06-18 15:23:55.406587"], ["updated_at", "2020-06-18 15:23:55.406587"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.3ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "alishazou@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Alisha"], ["email", "alishazou@gmail.com"], ["password_digest", "$2a$12$fvok4MUUohrNfW/9HSgT6eYNWaVuFi67WF7ABlJyxvDpgCsC3ztcC"], ["line1", "375 N La Cienega Blvd"], ["city", "West Hollywood"], ["state", "CA"], ["zip_code", "90048"], ["hometown_id", 1], ["created_at", "2020-06-18 15:23:55.709584"], ["updated_at", "2020-06-18 15:23:55.709584"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHometown Load (0.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "naomielegant@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "line1", "city", "state", "zip_code", "hometown_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Naomi"], ["email", "naomielegant@gmail.com"], ["password_digest", "$2a$12$LX9g8fL5FJABkTHe7nZGkO7jLHPQ1ezwcV5iqbJE2ZlnLZ0S78qKe"], ["line1", "20722 2nd Avenue West"], ["city", "Cudjoe Key"], ["state", "FL"], ["zip_code", "33042"], ["hometown_id", 1], ["created_at", "2020-06-18 15:23:56.022942"], ["updated_at", "2020-06-18 15:23:56.022942"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (1.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "2000"], ["name", "VIP Test Election"], ["electionDay", "2021-06-06"], ["ocdDivisionId", "ocd-division/country:us"], ["created_at", "2020-06-18 15:23:56.229744"], ["updated_at", "2020-06-18 15:23:56.229744"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (4.2ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4974"], ["name", "New York State Presidential and State Primary Election"], ["electionDay", "2020-06-23"], ["ocdDivisionId", "ocd-division/country:us/state:ny"], ["created_at", "2020-06-18 15:23:56.244042"], ["updated_at", "2020-06-18 15:23:56.244042"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.8ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4975"], ["name", "Utah State Primary Election"], ["electionDay", "2020-06-23"], ["ocdDivisionId", "ocd-division/country:us/state:ut"], ["created_at", "2020-06-18 15:23:56.258621"], ["updated_at", "2020-06-18 15:23:56.258621"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.5ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4977"], ["name", "Colorado State Primary Election"], ["electionDay", "2020-06-30"], ["ocdDivisionId", "ocd-division/country:us/state:co"], ["created_at", "2020-06-18 15:23:56.272346"], ["updated_at", "2020-06-18 15:23:56.272346"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.5ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4990"], ["name", "Louisiana Presidential and Municipal Primary Election"], ["electionDay", "2020-07-11"], ["ocdDivisionId", "ocd-division/country:us/state:la"], ["created_at", "2020-06-18 15:23:56.283951"], ["updated_at", "2020-06-18 15:23:56.283951"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.5ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4992"], ["name", "Alabama Primary Runoff Election"], ["electionDay", "2020-07-14"], ["ocdDivisionId", "ocd-division/country:us/state:al"], ["created_at", "2020-06-18 15:23:56.296237"], ["updated_at", "2020-06-18 15:23:56.296237"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mElection Create (0.4ms)[0m  [1m[32mINSERT INTO "elections" ("electionId", "name", "electionDay", "ocdDivisionId", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["electionId", "4997"], ["name", "North Carolina 11th Congressional District Republican Primary Election"], ["electionDay", "2020-06-23"], ["ocdDivisionId", "ocd-division/country:us/state:nc"], ["created_at", "2020-06-18 15:23:56.307479"], ["updated_at", "2020-06-18 15:23:56.307479"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (1.5ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 4], ["created_at", "2020-06-18 15:23:56.337279"], ["updated_at", "2020-06-18 15:23:56.337279"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (0.7ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 5], ["created_at", "2020-06-18 15:23:56.363094"], ["updated_at", "2020-06-18 15:23:56.363094"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 1], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (0.9ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 1], ["created_at", "2020-06-18 15:23:56.409247"], ["updated_at", "2020-06-18 15:23:56.409247"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (3.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (0.7ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 6], ["created_at", "2020-06-18 15:23:56.423543"], ["updated_at", "2020-06-18 15:23:56.423543"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (0.9ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 7], ["created_at", "2020-06-18 15:23:56.468544"], ["updated_at", "2020-06-18 15:23:56.468544"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 1], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mFollow Create (0.9ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["election_id", 3], ["created_at", "2020-06-18 15:23:56.496491"], ["updated_at", "2020-06-18 15:23:56.496491"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mElection Load (0.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mElection Load (0.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFollow Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 1], ["user_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
