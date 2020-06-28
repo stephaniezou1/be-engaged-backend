@@ -27296,3 +27296,409 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mFollow Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 1], ["user_id", 3], ["LIMIT", 1]]
   [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/elections" for ::1 at 2020-06-18 16:03:15 -0400
+Started GET "/users/stay_logged_in" for ::1 at 2020-06-18 16:03:15 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (26.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ElectionsController#index as */*
+Processing by UsersController#stay_logged_in as */*
+  [1m[36mElection Load (6.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.46ms)
+Completed 200 OK in 236ms (Views: 175.1ms | ActiveRecord: 36.1ms | Allocations: 23241)
+
+
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers]   [1m[36mHometown Load (0.7ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers]   [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:61:in `stay_logged_in'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (185.55ms)
+Completed 200 OK in 400ms (Views: 162.6ms | ActiveRecord: 127.8ms | Allocations: 31986)
+
+
+Started POST "/users/login" for ::1 at 2020-06-18 16:37:28 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"steph.zou16@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"steph.zou16@gmail.com"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `login'
+[active_model_serializers]   [1m[36mHometown Load (0.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:50:in `login'
+[active_model_serializers]   [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:50:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.15ms)
+Completed 200 OK in 410ms (Views: 6.5ms | ActiveRecord: 4.8ms | Allocations: 3893)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 16:37:54 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:93:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (17.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (27.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Exists? (20.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Update (11.8ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "line1" = $3, "zip_code" = $4, "updated_at" = $5 WHERE "users"."id" = $6[0m  [["name", "Lucy"], ["email", "lucyliu@gmail.com"], ["line1", "101 W 15th Street"], ["zip_code", "10011"], ["updated_at", "2020-06-18 20:37:54.742296"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."pollingLocations" = $1 LIMIT $2[0m  [["pollingLocations", "{\"locationName\":\"YMCA (McBurney)\",\"line1\":\"125 West 14 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[36mHometown Create (3.3ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"YMCA (McBurney)\",\"line1\":\"125 West 14 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["created_at", "2020-06-18 20:37:55.307263"], ["updated_at", "2020-06-18 20:37:55.307263"]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "hometown_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hometown_id", 2], ["updated_at", "2020-06-18 20:37:55.340835"], ["id", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+[active_model_serializers]   [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:70:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.93ms)
+Completed 200 OK in 742ms (Views: 5.6ms | ActiveRecord: 123.9ms | Allocations: 22105)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 16:38:12 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Stephanie Zou", "email"=>"steph.zou16@gmail.com", "line1"=>"160 W 24th St, 9B", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:93:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (1.1ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Exists? (4.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Update (13.9ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "line1" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "Stephanie Zou"], ["email", "steph.zou16@gmail.com"], ["line1", "160 W 24th St, 9B"], ["updated_at", "2020-06-18 20:38:12.861118"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (1.4ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."pollingLocations" = $1 LIMIT $2[0m  [["pollingLocations", "{\"locationName\":\"Associated Blind\",\"line1\":\"135 West 23 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[36mHometown Create (1.6ms)[0m  [1m[32mINSERT INTO "hometowns" ("pollingLocations", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["pollingLocations", "{\"locationName\":\"Associated Blind\",\"line1\":\"135 West 23 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["created_at", "2020-06-18 20:38:13.090048"], ["updated_at", "2020-06-18 20:38:13.090048"]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "steph.zou16@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Update (8.4ms)[0m  [1m[33mUPDATE "users" SET "hometown_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hometown_id", 3], ["updated_at", "2020-06-18 20:38:13.124188"], ["id", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+[active_model_serializers]   [1m[36mFollow Load (0.5ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:70:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (30.22ms)
+Completed 200 OK in 346ms (Views: 32.7ms | ActiveRecord: 47.1ms | Allocations: 18799)
+
+
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 16:38:26 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85:in `send_text'
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 0.6ms | Allocations: 4366)
+
+
+  
+Twilio::REST::RestError ([HTTP 401] 20003 : Unable to create record
+Authenticate
+https://www.twilio.com/docs/errors/20003
+
+):
+  
+app/controllers/users_controller.rb:77:in `twilio'
+app/controllers/users_controller.rb:87:in `send_text'
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 16:38:47 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85:in `send_text'
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 0.5ms | Allocations: 2086)
+
+
+  
+Twilio::REST::RestError ([HTTP 401] 20003 : Unable to create record
+Authenticate
+https://www.twilio.com/docs/errors/20003
+
+):
+  
+app/controllers/users_controller.rb:77:in `twilio'
+app/controllers/users_controller.rb:87:in `send_text'
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 16:38:50 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85:in `send_text'
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 0.4ms | Allocations: 2086)
+
+
+  
+Twilio::REST::RestError ([HTTP 401] 20003 : Unable to create record
+Authenticate
+https://www.twilio.com/docs/errors/20003
+
+):
+  
+app/controllers/users_controller.rb:77:in `twilio'
+app/controllers/users_controller.rb:87:in `send_text'
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 16:39:01 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85:in `send_text'
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 1.1ms | Allocations: 2085)
+
+
+  
+Twilio::REST::RestError ([HTTP 401] 20003 : Unable to create record
+Authenticate
+https://www.twilio.com/docs/errors/20003
+
+):
+  
+app/controllers/users_controller.rb:77:in `twilio'
+app/controllers/users_controller.rb:87:in `send_text'
+Started GET "/elections" for ::1 at 2020-06-18 16:42:30 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.61ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.8ms | Allocations: 2151)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:43:19 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (343.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.2ms)
+Completed 200 OK in 353ms (Views: 9.3ms | ActiveRecord: 343.2ms | Allocations: 2153)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:44:22 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (6.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.14ms)
+Completed 200 OK in 14ms (Views: 7.3ms | ActiveRecord: 6.5ms | Allocations: 2152)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:44:23 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (9.8ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.72ms)
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 9.8ms | Allocations: 2153)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:44:36 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.2ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.56ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 1.2ms | Allocations: 2152)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:46:43 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.3ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.78ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.3ms | Allocations: 2152)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:47:26 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (0.7ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.64ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.7ms | Allocations: 2152)
+
+
+Started GET "/elections" for ::1 at 2020-06-18 16:47:29 -0400
+Processing by ElectionsController#index as */*
+  [1m[36mElection Load (1.4ms)[0m  [1m[34mSELECT "elections".* FROM "elections"[0m
+  ↳ app/controllers/elections_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.83ms)
+Completed 200 OK in 373ms (Views: 371.4ms | ActiveRecord: 1.4ms | Allocations: 2154)
+
+
+Started POST "/users/login" for ::1 at 2020-06-18 16:56:38 -0400
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"steph.zou16@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"steph.zou16@gmail.com"}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "steph.zou16@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47:in `login'
+[active_model_serializers]   [1m[36mHometown Load (3.3ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:50:in `login'
+[active_model_serializers]   [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:50:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (14.09ms)
+Completed 200 OK in 455ms (Views: 10.7ms | ActiveRecord: 8.7ms | Allocations: 3760)
+
+
+Started POST "/follows" for ::1 at 2020-06-18 16:56:55 -0400
+Processing by FollowsController#create as */*
+  Parameters: {"election_id"=>3, "follow"=>{"election_id"=>3}}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mElection Load (0.6ms)[0m  [1m[34mSELECT "elections".* FROM "elections" WHERE "elections"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Create (10.7ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["election_id", 3], ["created_at", "2020-06-18 20:56:56.051022"], ["updated_at", "2020-06-18 20:56:56.051022"]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."id" != $2 AND "follows"."user_id" = $3 LIMIT $4[0m  [["election_id", 3], ["id", 7], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:18:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 201 Created in 86ms (Views: 8.3ms | ActiveRecord: 43.9ms | Allocations: 12267)
+
+
+Started POST "/follows" for ::1 at 2020-06-18 16:56:57 -0400
+Processing by FollowsController#create as */*
+  Parameters: {"election_id"=>4, "follow"=>{"election_id"=>4}}
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (44.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mElection Load (165.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections" WHERE "elections"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (13.4ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Create (8.3ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["election_id", 4], ["created_at", "2020-06-18 20:56:57.430427"], ["updated_at", "2020-06-18 20:56:57.430427"]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (16.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."id" != $2 AND "follows"."user_id" = $3 LIMIT $4[0m  [["election_id", 4], ["id", 8], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:18:in `create'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 201 Created in 387ms (Views: 10.0ms | ActiveRecord: 264.5ms | Allocations: 8361)
+
+
+Started POST "/follows" for ::1 at 2020-06-18 16:56:58 -0400
+Processing by FollowsController#create as */*
+  Parameters: {"election_id"=>2, "follow"=>{"election_id"=>2}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (34.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mElection Load (0.5ms)[0m  [1m[34mSELECT "elections".* FROM "elections" WHERE "elections"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."user_id" = $2 LIMIT $3[0m  [["election_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Create (17.0ms)[0m  [1m[32mINSERT INTO "follows" ("user_id", "election_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["election_id", 2], ["created_at", "2020-06-18 20:56:58.344589"], ["updated_at", "2020-06-18 20:56:58.344589"]]
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/follows_controller.rb:17:in `create'
+  [1m[36mFollow Exists? (10.9ms)[0m  [1m[34mSELECT 1 AS one FROM "follows" WHERE "follows"."election_id" = $1 AND "follows"."id" != $2 AND "follows"."user_id" = $3 LIMIT $4[0m  [["election_id", 2], ["id", 9], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/follows_controller.rb:18:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `current_user'
+[active_model_serializers] Rendered FollowSerializer with ActiveModelSerializers::Adapter::Attributes (1.77ms)
+Completed 201 Created in 131ms (Views: 12.4ms | ActiveRecord: 71.1ms | Allocations: 8361)
+
+
+Started GET "/users/1/send_text" for ::1 at 2020-06-18 16:57:03 -0400
+Processing by UsersController#send_text as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (22.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85:in `send_text'
+Completed 500 Internal Server Error in 394ms (ActiveRecord: 22.6ms | Allocations: 2090)
+
+
+  
+Twilio::REST::RestError ([HTTP 401] 20003 : Unable to create record
+Authenticate
+https://www.twilio.com/docs/errors/20003
+
+):
+  
+app/controllers/users_controller.rb:77:in `twilio'
+app/controllers/users_controller.rb:87:in `send_text'
+Started PATCH "/users/1" for ::1 at 2020-06-18 16:57:32 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:93:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (28.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (2.0ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Exists? (5.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Update (112.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "email" = $2, "line1" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["name", "Lucy"], ["email", "lucyliu@gmail.com"], ["line1", "101 W 15th Street"], ["updated_at", "2020-06-18 20:57:33.199377"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[35m (127.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (21.8ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."pollingLocations" = $1 LIMIT $2[0m  [["pollingLocations", "{\"locationName\":\"YMCA (McBurney)\",\"line1\":\"125 West 14 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Exists? (55.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[36mUser Update (13.3ms)[0m  [1m[33mUPDATE "users" SET "hometown_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["hometown_id", 2], ["updated_at", "2020-06-18 20:57:33.902410"], ["id", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:19:in `update_hometown'
+[active_model_serializers]   [1m[36mFollow Load (7.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:70:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (25.69ms)
+Completed 200 OK in 1027ms (Views: 19.1ms | ActiveRecord: 509.0ms | Allocations: 16562)
+
+
+Started PATCH "/users/1" for ::1 at 2020-06-18 16:57:34 -0400
+Processing by UsersController#update as */*
+  Parameters: {"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011", "id"=>"1", "user"=>{"name"=>"Lucy", "email"=>"lucyliu@gmail.com", "line1"=>"101 W 15th Street", "city"=>"New York", "state"=>"NY", "zip_code"=>"10011"}}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:93:in `set_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[35m (26.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (9.3ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mUser Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:68:in `update'
+  [1m[36mHometown Load (0.5ms)[0m  [1m[34mSELECT "hometowns".* FROM "hometowns" WHERE "hometowns"."pollingLocations" = $1 LIMIT $2[0m  [["pollingLocations", "{\"locationName\":\"YMCA (McBurney)\",\"line1\":\"125 West 14 Street\",\"city\":\"New York\",\"state\":\"NY\",\"zip\":\"10011\"}"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `update_hometown'
+  [1m[36mCACHE User Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "lucyliu@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `update_hometown'
+[active_model_serializers]   [1m[36mFollow Load (0.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows" WHERE "follows"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:70:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.53ms)
+Completed 200 OK in 442ms (Views: 16.6ms | ActiveRecord: 54.4ms | Allocations: 13243)
+
+
